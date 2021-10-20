@@ -16,12 +16,7 @@
 
 <body>
   <article>
-    <a class="logo " data-scroll>Game Catalog</a>
-
-    <!-- <div id="divBusca">
-          <input type="text" id="txtBusca" placeholder="Buscar..."/>
-          <img src="search3.png" id="btnBusca" alt="Buscar"/>
-        </div> -->
+    <a class="logo" href="/" data-scroll>Game Catalog</a>
 
     <nav class="nav-collapse">
       <ul>
@@ -34,37 +29,37 @@
   </article>
 
   <div id="cadastro">
-    <form action="/new" method="POST"> 
-      <h1>Cadastro</h1> 
+    <form action="/newcad" method="POST">
+      <h1>Cadastro</h1>
       <div class="cadpessoa">
-        <input type='text' name="noome" id='nome' placeholder=""required>
+        <input type='text' name="nome" id='nome' placeholder="" required>
         <label for="nome">Seu nome</label>
       </div>
 
       <div class="cadpessoa">
-        <input type='email' name="email" id='email' placeholder=""required>
+        <input type='email' name="email" id='email' placeholder="" required>
         <label for="email">Seu e-mail</label>
       </div>
 
       <div class="cadpessoa">
-        <input type='password' name="senha" id='senha' placeholder=""required>
+        <input type='password' name="senha" id='senha' placeholder="" required>
         <label for="senha">Sua senha</label>
       </div>
 
       <div class="cadpessoa">
-        <input type='password' name="confirmsenha" id='confirmsenha' placeholder=""required>
+        <input type='password' name="confirmsenha" id='confirmsenha' placeholder="" required>
         <label for="confirmsenha">Confirmar senha</label>
       </div>
-        <input type="submit" value="Cadastrar"/> 
-       
-      <p class="link">  
+      <button type="submit">Cadastrar</button>
+
+      <p class="link">
         Já tem conta?
         <a href="/login"> Ir para Login </a>
       </p>
     </form>
   </div>
-</div>
-</div>  
+  </div>
+  </div>
 
 
   <footer>
@@ -75,7 +70,7 @@
     </p>
   </footer>
 
-  
+
   <script src="../js/fixed-responsive-nav.js"></script>
   <script src="../js/responsive-nav.js"></script>
   <script src="/js/nav.js"></script>

@@ -3,7 +3,7 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
  let message = "";
 
 
@@ -13,22 +13,22 @@ app.use(express.urlencoded());
 
 const Jogos = require("./models/jogos");
 
-
-
 app.get("/", async (req, res) => {
+  const jogo = await Jogos.findAll();
   
-  const jogos = await Jogos.findAll();
-  
+  setTimeout(() => {
+    message = "";
+  }, 1000);
   res.render("index", {
-    jogos,
+    jogo,
+    message
   });
 });
 
   app.get("/detalhes/:id", async (req, res) => {
-    const jogos = await Jogos.findByPk(req.params.id);
-    
+    const jogo = await Jogos.findByPk(req.params.id);
     res.render("detalhes", {
-      jogos,
+      jogo,
     });
   });
 
@@ -37,17 +37,8 @@ app.get("/cadastro", (req, res) => {
     message,
   });
 });
-
-app.get("/cadusuario", (req, res) => {
-  res.render("cadusuario");
-});
-
-app.get("/login", (req, res) => {
-  res.render("login");
-});
-
-app.get("/sobre", (req, res) => {
-  res.render("sobre");
+app.get("/sobre",(req,res)=>{
+  res.render("sobre")
 });
 
 app.post("/new", async (req, res) => {
@@ -59,12 +50,10 @@ app.post("/new", async (req, res) => {
     imagem,
     genero,
   });
-
-  res.redirect("/",{
-    jogo,
-  });
-    
+  message = `O Jogo ${jogo.nome} foi criado!!!`
+  res.redirect("/");
 });
+
 
 app.get("/editar/:id", async (req, res) => {  
   const jogo = await Jogos.findByPk(req.params.id)
@@ -86,11 +75,9 @@ app.post("/editar/:id", async (req, res) => {
   jogo.genero = genero
 
   const jogoEditado = await jogo.save();
-
-  res.render("editar", {
-    jogo: jogoEditado,
-    message: "Jogo editado com sucesso!",
-  });
+  jogoEditado,
+message = `O jogo ${jogo.nome} foi Editado com sucesso!!`,
+  res.redirect("/");
 });
 
 app.get("/deletar/:id", async (req, res) => {
@@ -98,6 +85,7 @@ app.get("/deletar/:id", async (req, res) => {
 
   res.render("deletar", {
     jogo,
+    message
   });
 });
 app.post("/deletar/:id", async (req, res) => {
@@ -105,13 +93,10 @@ app.post("/deletar/:id", async (req, res) => {
 
 
   await jogo.destroy();
-
-  res.render("index", {
-    message: `Jogo ${jogo.nome} deletado com sucesso!`,
-  });
+  message = `Jogo ${jogo.nome} deletado com sucesso!`
+  res.redirect("/");
 });
 
 app.listen(port, () =>
   console.log(`Servidor rodando em http://localhost:${port}`)
 );
-

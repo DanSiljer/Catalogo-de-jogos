@@ -22,45 +22,44 @@
 
     <nav class="nav-collapse">
       <ul>
-        <li class="menu-item active"><a href="/" data-scroll>Home</a></li>
-        <li class="menu-item"><a href="/sobre" data-scroll>Quem somos</a></li>
-        <li class="menu-item"><a href="/cadastro" data-scroll>Cadrastro</a></li>
-        <li class="menu-item"><a href="/login" data-scroll>Login</a></li>
-      
+        <li><a href="/" data-scroll>Home</a></li>
+        <li><a href="/sobre" data-scroll>Quem somos</a></li>
+        <li><a href="/cadastro" data-scroll>Cadrastro</a></li>
       </ul>
     </nav>
   </article>
 
-   <header>
-        <h1> Detalhes de <%= jogos.nome%> </h1>
-    </header>
+  <header>
+    <h1> Detalhes do Jogo </h1>
+  </header>
 
-    <section id="detalhes">
-      <div class=card-detalhes>
-         <ul>
-          <li>Nome: <%= jogos.nome %></li>
-          <li>Descrição: <%= jogos.descricao %></li>
-          <li>Genero: <%= jogos.genero %></li>
-          <img src="<%= jogos.imagem %>" width=200>
-          <a href="/deletar/<%= jogos.id %>">DELETAR!</a>
-
-        </ul>
-      </div>
+  <section id="detalhes">
+    <div class=card-detalhes>
+      <ul>
+        <li>Nome: <%= jogo.nome %></li>
+        <img src="<%= jogo.imagem %>" width=200>
+        <li>Genero: <%= jogo.genero %></li>
+        <li>Descrição: <%= jogo.descricao %></li>
+        <form action="/deletar/<%= jogo.id %>" method="POST">
+          <button type="submit">Deletar</button>
+        </form>
+      </ul>
+    </div>
   </section>
 
   <footer>
     <p>Projeto final | Blue | M02</br>
       <a href="https://www.linkedin.com/in/danusajesus" target="_blank" target="_blank">Danusa Jesus</a> |
-      <a href="https://www.linkedin.com/in/pedro-henrique-soares-da-luz-40b18b21a/" target="_blank" target="_blank"> Pedro Henhique </a>
+      <a href="https://www.linkedin.com/in/pedro-henrique-soares-da-luz-40b18b21a/" target="_blank" target="_blank">
+        Pedro Henhique </a>
     </p>
   </footer>
-  
-  
+
+
   <script src="./js/fixed-responsive-nav.js"></script>
   <script src="./js/responsive-nav.js"></script>
   <script src="./js/nav.js"></script>
   <script src="/js/script.js"></script>
-  </body>
-  
-  </html>
+</body>
 
+</html>

@@ -1,7 +1,7 @@
 {
-  "name": "projeto-final",
+  "name": "catalogo-jogos",
   "version": "1.0.0",
-  "description": "Catálogo de Jogos",
+  "description": "Repositorio para armazenar e mostrar o processo de criação do Projeto final, Um Catalogo com tema livre que vai fazer a utilização de CRUD, EXPRESS, EJS HTML CSS e JS com manusuamento de banco de dados",
   "main": "index.js",
   "scripts": {
     "start": "node index",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DanSiljer/Projeto-final.git"
+    "url": "git+https://github.com/PedroCod/Catalogo-Jogos.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DanSiljer/Projeto-final/issues"
+    "url": "https://github.com/PedroCod/Catalogo-Jogos/issues"
   },
-  "homepage": "https://github.com/DanSiljer/Projeto-final#readme",
+  "homepage": "https://github.com/PedroCod/Catalogo-Jogos#readme",
   "devDependencies": {
     "nodemon": "^2.0.13"
   },
